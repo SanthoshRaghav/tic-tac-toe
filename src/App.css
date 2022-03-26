@@ -1,0 +1,34 @@
+h1 {
+  color: var(--light);
+  margin-bottom: 0.5rem;
+}
+
+.start-btn {
+  font-size: 1rem;
+  background-color: var(--primary);
+  padding: 0.625em 1.25em;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25em;
+  color: var(--light);
+  margin-top: 2rem;
+}
+
+.start-btn:hover {
+  background-color: var(--yellow);
+  color: var(--dark);
+}
+
+.characters .profile {
+  margin-bottom: 0.5rem;
+}
+.characters .profile:hover {
+  background-color: var(--yellow);
+  cursor: pointer;
+  border-radius: 0.25em;
+}
+
+.characters .profile.selected {
+  background-color: var(--green);
+  border-radius: 0.25em;
+}
