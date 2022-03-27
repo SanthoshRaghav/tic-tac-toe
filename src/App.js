@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from './components/Modal';
+import GameBoard from './components/GameBoard';
 import './App.css';
 import f1 from './assets/f1.png';
 import m1 from './assets/m1.png';
@@ -9,9 +10,9 @@ import m2 from './assets/m2.png';
 const body = ({ charactersData, selectedProfile, setSelectedProfile }) => (
   <div className='characters'>
     {charactersData.map((item) => (
-      <div key={item.key} className={selectedProfile === item.key ? 'profile selected' : 'profile'} onClick={() => setSelectedProfile(item.key)}>
-        <img src={item.male} alt={item.male} />
-        <img src={item.female} alt={item.female} />
+      <div key={item.id} className={selectedProfile === item.id ? 'profile selected' : 'profile'} onClick={() => setSelectedProfile(item.id)}>
+        <img src={item.maleAvatar} alt={item.maleId} />
+        <img src={item.femaleAvatar} alt={item.femaleId} />
       </div>
     ))}
   </div>
@@ -24,15 +25,16 @@ const footer = ({ selectedProfile, setStartScreen }) => (
 );
 
 const App = () => {
-  // data
-  const charactersData = [
-    { male: m1, female: f1, key: 'one' },
-    { male: m2, female: f2, key: 'two' },
-  ];
-
   // state
   const [selectedProfile, setSelectedProfile] = useState(null);
   const [showStartScreen, setStartScreen] = useState(true);
+
+  // data
+  const charactersData = [
+    { maleId: 'm1', maleAvatar: m1, femaleId: 'f1', femaleAvatar: f1, id: 'one' },
+    { maleId: 'm2', maleAvatar: m2, femaleId: 'f2', femaleAvatar: f2, id: 'two' },
+  ];
+  const players = charactersData.find((item) => item.id === selectedProfile);
 
   return (
     <div className='App'>
@@ -43,6 +45,7 @@ const App = () => {
           footer={footer({ selectedProfile, setStartScreen })}
         />
       )}
+      <div className='gameboard-container'>{players && <GameBoard cellCount={9} players={players} />}</div>
     </div>
   );
 };

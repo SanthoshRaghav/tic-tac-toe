@@ -1,0 +1,45 @@
+.gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 18.75em;
+}
+
+.cell {
+  flex-shrink: 0;
+  border: 0.0625em solid var(--light);
+  width: 6.25em;
+  height: 6.25em;
+  cursor: pointer;
+}
+
+.cell.m1 {
+  background: var(--m1) var(--purple);
+}
+
+.cell.f1 {
+  background: var(--f1) var(--yellow);
+}
+
+.cell.m2 {
+  background: var(--m2) var(--purple);
+}
+
+.cell.f2 {
+  background: var(--f2) var(--yellow);
+}
+
+[data-player='m1']:not(.m1):not(.f1):hover {
+  background: var(--m1) var(--purple);
+}
+
+[data-player='f1']:not(.m1):not(.f1):hover {
+  background: var(--f1) var(--yellow);
+}
+
+[data-player='m2']:not(.m2):not(.f2):hover {
+  background: var(--m2) var(--purple);
+}
+
+[data-player='f2']:not(.m2):not(.f2):hover {
+  background: var(--f2) var(--yellow);
+}

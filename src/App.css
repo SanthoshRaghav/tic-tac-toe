@@ -5,7 +5,7 @@ h1 {
 
 .start-btn {
   font-size: 1rem;
-  background-color: var(--primary);
+  background-color: var(--purple);
   padding: 0.625em 1.25em;
   cursor: pointer;
   border: none;
@@ -31,4 +31,12 @@ h1 {
 .characters .profile.selected {
   background-color: var(--green);
   border-radius: 0.25em;
+}
+
+.gameboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
